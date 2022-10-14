@@ -114,13 +114,13 @@ body {
 }
 
 .icon {
-  color: inherit;
   fill: currentColor;
 }
 
 /* Social network contacts*/
 .social-network-contacts {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -313,10 +313,6 @@ body {
 /* styles for studio page main  */
 /* banner section*/
 .banner {
-  background-color: var(--accent-background-color);
-}
-
-.banner__overlay {
   margin: 0 auto;
   padding: 200px 0;
   max-width: 1600px;
@@ -382,8 +378,13 @@ body {
 }
 
 .peculiarity-card__thumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
-  padding: 25px 100px;
+  width: 270px;
+  height: 120px;
+  /*padding: 25px 100px;*/
 
   border-radius: 4px;
 
@@ -432,10 +433,6 @@ body {
 }
 
 .team-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -494,6 +491,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
 
   border: 1px solid #afb1b8;
@@ -502,8 +500,9 @@ body {
   color: #afb1b8;
 }
 
-.regular-customers__link:hover {
-  border: 1px solid var(--accent-color);
+.regular-customers__link:hover,
+.regular-customers__link:focus {
+  border-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   color: var(--accent-color);
@@ -568,8 +567,12 @@ body {
   max-width: 370px;
 }
 
-.project:hover,
-.project:focus {
+.project-imageref {
+  display: block;
+}
+
+.project-imageref:hover,
+.project-imageref:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
