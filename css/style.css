@@ -52,6 +52,9 @@ button {
   --accent-background-color: #2f303a;
   --team-section-background-color: #f5f4fa;
   --filter-button-background-color: #f5f4fa;
+  --peculiarities-icon-background-color: #f5f4fa;
+
+  --banner-overlay: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4));
 
   --main-font-family: 'Roboto', sans-serif;
   --logo-font-family: 'Raleway', sans-serif;
@@ -109,6 +112,46 @@ body {
   border: 0;
   clip: rect(0 0 0 0);
 }
+
+.icon {
+  color: inherit;
+  fill: currentColor;
+}
+
+/* Social network contacts*/
+.social-network-contacts {
+  display: flex;
+  gap: 10px;
+}
+
+.social-network-contact {
+  width: 44px;
+  height: 44px;
+}
+
+.social-network-contact__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  border-radius: 50%;
+
+  color: #afb1b8;
+}
+
+.social-network-contact__link--footer {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.social-network-contact__link:hover,
+.social-network-contact__link:focus {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* /Social network contacts*/
 /* /Components */
 /*--------------------*/
 
@@ -158,6 +201,9 @@ body {
 }
 
 .header-contact-link {
+  display: flex;
+  align-items: center;
+
   color: var(--text-color);
 }
 
@@ -177,11 +223,32 @@ body {
   color: var(--accent-color);
 }
 
+.icon--envelope {
+  margin-right: 10px;
+  width: 16px;
+  height: 12px;
+}
+
+.icon--smartphone {
+  margin-right: 10px;
+  width: 10px;
+  height: 16px;
+}
+
 /* styles for footer*/
 .footer {
   padding: 60px 0;
 
   background-color: var(--accent-background-color);
+}
+
+.footer__container {
+  display: flex;
+  align-items: baseline;
+}
+
+.footer__logo-and-address {
+  margin-right: 70px;
 }
 
 .footer-logo {
@@ -233,15 +300,36 @@ body {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.social-title {
+  margin-bottom: 20px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
 /* styles for studio page main  */
 /* banner section*/
 .banner {
-  padding: 200px 0;
+  background-color: var(--accent-background-color);
+}
 
-  text-align: center;
+.banner__overlay {
+  margin: 0 auto;
+  padding: 200px 0;
+  max-width: 1600px;
+  height: 600px;
 
   color: var(--banner-text-color);
   background-color: var(--accent-background-color);
+  background-image: var(--banner-overlay), url('../images/banner/banner-background-image-min.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  text-align: center;
 }
 
 .main-title {
@@ -253,11 +341,11 @@ body {
   text-transform: uppercase;
 }
 
-.banner-title {
+.banner__title {
   margin-bottom: 30px;
 }
 
-.banner-button {
+.banner__button {
   padding: 10px 32px;
 
   font-weight: 700;
@@ -267,9 +355,19 @@ body {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: 1px solid transparent;
 
   color: var(--banner-text-color);
   background-color: var(--accent-color);
+}
+
+.banner__button:hover,
+.banner__button:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+}
+
+.banner__button:active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 }
 /* /banner section*/
 
@@ -281,6 +379,20 @@ body {
 
 .peculiarity-card {
   flex-grow: 1;
+}
+
+.peculiarity-card__thumb {
+  margin-bottom: 30px;
+  padding: 25px 100px;
+
+  border-radius: 4px;
+
+  background-color: var(--peculiarities-icon-background-color);
+}
+
+.peculiarity-card__icon {
+  width: 70px;
+  height: 70px;
 }
 
 .peculiarity-card-title {
@@ -320,6 +432,10 @@ body {
 }
 
 .team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -341,6 +457,15 @@ body {
 
 .teamcard-name {
   margin-bottom: 10px;
+
+  color: var(--title-text-color);
+
+  text-align: center;
+  font-weight: 500;
+}
+
+.teamcard-job {
+  margin-bottom: 16px;
 }
 
 .teamcard-name,
@@ -350,13 +475,41 @@ body {
   letter-spacing: 0.03em;
 }
 
-.teamcard-name {
-  text-align: center;
-  font-weight: 500;
-  color: var(--title-text-color);
+/* /team section*/
+
+/* Regular customers section */
+
+.regular-customers__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-/* /team section*/
+.regular-customers__listitem {
+  width: 170px;
+  height: 92px;
+}
+
+.regular-customers__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+
+  color: #afb1b8;
+}
+
+.regular-customers__link:hover {
+  border: 1px solid var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  color: var(--accent-color);
+}
+
+/* /Regular customers section */
 
 /* styles for portfolio page main*/
 .filters {
@@ -387,8 +540,6 @@ body {
 
 .filter-button:hover,
 .filter-button:focus {
-  padding: 6px 25px;
-
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 
@@ -415,6 +566,12 @@ body {
 .project {
   flex-basis: 370px;
   max-width: 370px;
+}
+
+.project:hover,
+.project:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-image {
